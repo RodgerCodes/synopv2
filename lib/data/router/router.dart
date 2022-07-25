@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:synopv2/data/constants.dart';
+import 'package:synopv2/presentation/screens/regular/Auth/login.dart';
 import 'package:synopv2/presentation/screens/splash_screen.dart';
 
 class AppRouter {
@@ -9,6 +10,9 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const SplashScreen(),
         );
+
+      case login:
+        return MaterialPageRoute(builder: (_) => LoginPage());
     }
   }
 }
