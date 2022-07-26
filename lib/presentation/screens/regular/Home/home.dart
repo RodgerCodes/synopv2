@@ -8,7 +8,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, add);
+        },
         elevation: 50.5,
         backgroundColor: btnColor,
         child: const Icon(

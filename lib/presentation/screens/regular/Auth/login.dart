@@ -111,6 +111,9 @@ class LoginPage extends StatelessWidget {
                       height: 20,
                     ),
                     GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, home);
+                      },
                       child: Container(
                         width: MediaQuery.of(context).size.width * 0.9,
                         padding: const EdgeInsets.all(14.5),
