@@ -11,6 +11,7 @@ const add = '/data';
 final ScaffoldColor = Colors.blueGrey[900];
 const whiteColor = Colors.white;
 const errorColor = Colors.red;
+const btnColor = Colors.blue;
 
 // element styling
 final btnStyle = BoxDecoration(
