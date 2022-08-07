@@ -23,6 +23,15 @@ final btnStyle = BoxDecoration(
   ),
 );
 
+final secBtnStyle = BoxDecoration(
+  color: Colors.green[800],
+  borderRadius: const BorderRadius.all(
+    Radius.circular(
+      8.6,
+    ),
+  ),
+);
+
 const textStyle = TextStyle(
   fontSize: 18,
   fontWeight: FontWeight.w700,

@@ -2,8 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:synopv2/data/constants.dart';
 import 'package:synopv2/data/data.dart';
 
-class AddData extends StatelessWidget {
+class AddData extends StatefulWidget {
   const AddData({Key? key}) : super(key: key);
+
+  @override
+  State<AddData> createState() => _AddDataState();
+}
+
+class _AddDataState extends State<AddData> {
+  String iw = "Obtained from Anemometer in m/s";
+  String ir = "Data included";
+  String ix = "No significant Phenomena";
+  String isobaricValue = "925";
+  String lowcloud = "No low Clouds";
+  String middlecloud = "No Medium Clouds";
+  String highcloud = "No high Clouds";
+  String panoption = "USA opena pan mesh Cover";
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +58,7 @@ class AddData extends StatelessWidget {
                     ),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton(
+                          value: iw,
                           hint: const Text('Wind Speed source indicator'),
                           items: windSpeedIndicator
                               .map<DropdownMenuItem<String>>((String value) {
@@ -54,14 +69,18 @@ class AddData extends StatelessWidget {
                               ),
                             );
                           }).toList(),
-                          onChanged: (value) {}),
+                          onChanged: (value) {
+                            setState(() {
+                              iw = value.toString();
+                            });
+                          }),
                     ),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.8,
+                    width: MediaQuery.of(context).size.width,
                     padding: const EdgeInsets.only(left: 10, right: 10),
                     decoration: BoxDecoration(
                       border: Border.all(
@@ -74,8 +93,9 @@ class AddData extends StatelessWidget {
                     ),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton(
+                        value: ir,
                         hint: const Text('Rainfall Data Inclusion'),
-                        items: windSpeedIndicator
+                        items: rainfallDataInclusion
                             .map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem(
                             value: value,
@@ -84,7 +104,11 @@ class AddData extends StatelessWidget {
                             ),
                           );
                         }).toList(),
-                        onChanged: (value) {},
+                        onChanged: (value) {
+                          setState(() {
+                            ir = value.toString();
+                          });
+                        },
                       ),
                     ),
                   ),
@@ -92,7 +116,7 @@ class AddData extends StatelessWidget {
                     height: 20,
                   ),
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.8,
+                    width: MediaQuery.of(context).size.width,
                     padding: const EdgeInsets.only(left: 10, right: 10),
                     decoration: BoxDecoration(
                       border: Border.all(
@@ -105,8 +129,9 @@ class AddData extends StatelessWidget {
                     ),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton(
+                          value: ix,
                           hint: const Text('Present Past weather inclusion'),
-                          items: windSpeedIndicator
+                          items: presentWeatherInclusion
                               .map<DropdownMenuItem<String>>((String value) {
                             return DropdownMenuItem(
                               value: value,
@@ -115,7 +140,9 @@ class AddData extends StatelessWidget {
                               ),
                             );
                           }).toList(),
-                          onChanged: (value) {}),
+                          onChanged: (value) {
+                            ix = value.toString();
+                          }),
                     ),
                   ),
                   const SizedBox(
@@ -683,6 +710,7 @@ class AddData extends StatelessWidget {
                     ),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton(
+                          value: isobaricValue,
                           hint: const Text('Standard isobaric Pressure'),
                           items: isobaricPressure
                               .map<DropdownMenuItem<String>>((String value) {
@@ -693,7 +721,11 @@ class AddData extends StatelessWidget {
                               ),
                             );
                           }).toList(),
-                          onChanged: (value) {}),
+                          onChanged: (value) {
+                            setState(() {
+                              isobaricValue = value.toString();
+                            });
+                          }),
                     ),
                   ),
                   const SizedBox(
@@ -749,6 +781,412 @@ class AddData extends StatelessWidget {
                   ),
                   const SizedBox(
                     height: 10,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: whiteColor,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        5.0,
+                      ),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                          value: lowcloud,
+                          hint: const Text('Low Clouds'),
+                          items: lowClouds
+                              .map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem(
+                              value: value,
+                              child: Text(
+                                value,
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: (value) {
+                            lowcloud = value.toString();
+                          }),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: whiteColor,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        5.0,
+                      ),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                          value: middlecloud,
+                          hint: const Text('Middle Clouds'),
+                          items: middleClouds
+                              .map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem(
+                              value: value,
+                              child: Text(
+                                value,
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              middlecloud = value.toString();
+                            });
+                          }),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: whiteColor,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        5.0,
+                      ),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                          value: highcloud,
+                          hint: const Text('High Clouds'),
+                          items: highClouds
+                              .map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem(
+                              value: value,
+                              child: Text(
+                                value,
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              highcloud = value.toString();
+                            });
+                          }),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    "Section H: Past and Present Weather",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    'Present Weather (code)',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: presentweather,
+                    decoration: const InputDecoration(
+                      hintText: "Present Weather",
+                      labelText: "Present Weather",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    'Past Weather (code)',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: pastweather,
+                    decoration: const InputDecoration(
+                      hintText: "Past Weather",
+                      labelText: "Past Weather",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    'Past 24 hour weather (code)',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: pastTwentyFourWeather,
+                    decoration: const InputDecoration(
+                      hintText: "Past 24 hour weather",
+                      labelText: "Past 24 hour weather",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    "Section I: Sunshine",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    'Sunshine',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: sunshine,
+                    decoration: const InputDecoration(
+                      hintText: "Sunshine",
+                      labelText: "Sunshine",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    "Section J: Evaporation",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    'Evaporation',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: evaporation,
+                    decoration: const InputDecoration(
+                      hintText: "Evaporation",
+                      labelText: "Evaporation",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: whiteColor,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        5.0,
+                      ),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                          value: panoption,
+                          hint: const Text('Evaporation instrument Type'),
+                          items: evaporationpan
+                              .map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem(
+                              value: value,
+                              child: Text(
+                                value,
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              panoption = value.toString();
+                            });
+                          }),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  GestureDetector(
+                    // onTap: () {
+                    //   Navigator.pushNamed(context, home);
+                    // },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      padding: const EdgeInsets.all(14.5),
+                      decoration: btnStyle,
+                      child: const Text(
+                        "Save Data",
+                        textAlign: TextAlign.center,
+                        style: textStyle,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  GestureDetector(
+                    // onTap: () {
+                    //   Navigator.pushNamed(context, home);
+                    // },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      padding: const EdgeInsets.all(14.5),
+                      decoration: secBtnStyle,
+                      child: const Text(
+                        "Save and Generate Synop",
+                        textAlign: TextAlign.center,
+                        style: textStyle,
+                      ),
+                    ),
                   ),
                 ],
               ))
