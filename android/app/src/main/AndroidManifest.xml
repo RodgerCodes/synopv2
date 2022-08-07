@@ -3,7 +3,7 @@
    <application
         android:label="synopv2"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/lg">
         <activity
             android:name=".MainActivity"
             android:exported="true"
