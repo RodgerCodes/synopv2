@@ -37,6 +37,11 @@ const textStyle = TextStyle(
   fontWeight: FontWeight.w700,
 );
 
+const tabletStyle = TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.bold,
+);
+
 // editing controllers
 final TextEditingController email = TextEditingController();
 final TextEditingController password = TextEditingController();

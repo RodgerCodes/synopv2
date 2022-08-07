@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:synopv2/data/constants.dart';
+import 'package:synop/data/constants.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -112,7 +112,7 @@ class LoginPage extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, home);
+                        Navigator.pushReplacementNamed(context, home);
                       },
                       child: Container(
                         width: MediaQuery.of(context).size.width * 0.9,

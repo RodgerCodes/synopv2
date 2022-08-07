@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:synopv2/data/constants.dart';
+import 'package:synop/presentation/widgets/add_button.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -7,17 +7,24 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushNamed(context, add);
-        },
-        elevation: 50.5,
-        backgroundColor: btnColor,
-        child: const Icon(
-          Icons.add,
-          color: whiteColor,
+      appBar: AppBar(
+        title: const Text(
+          "SYNOP",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+      ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListView(
+            children: [],
+          ),
         ),
       ),
+      floatingActionButton: const Addbutton(),
     );
   }
 }

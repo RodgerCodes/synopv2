@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:synopv2/data/constants.dart';
-import 'package:synopv2/data/data.dart';
+import 'package:synop/data/constants.dart';
+import 'package:synop/data/data.dart';
 
-class AddData extends StatefulWidget {
-  const AddData({Key? key}) : super(key: key);
+class AddMobile extends StatefulWidget {
+  const AddMobile({Key? key}) : super(key: key);
 
   @override
-  State<AddData> createState() => _AddDataState();
+  State<AddMobile> createState() => _AddMobileState();
 }
 
-class _AddDataState extends State<AddData> {
+class _AddMobileState extends State<AddMobile> {
   String iw = "Obtained from Anemometer in m/s";
   String ir = "Data included";
   String ix = "No significant Phenomena";
@@ -18,7 +18,6 @@ class _AddDataState extends State<AddData> {
   String middlecloud = "No Medium Clouds";
   String highcloud = "No high Clouds";
   String panoption = "USA opena pan mesh Cover";
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +26,29 @@ class _AddDataState extends State<AddData> {
           padding: const EdgeInsets.all(8.0),
           child: ListView(
             children: [
+              Row(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Icon(Icons.arrow_back),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  const Text(
+                    "Add Weather Data",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
               Form(
                   child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

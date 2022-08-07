@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:synopv2/data/constants.dart';
-import 'package:synopv2/data/router/router.dart';
+import 'package:synop/data/constants.dart';
+import 'package:synop/data/router/router.dart';
 
 void main() {
   runApp(
@@ -10,6 +10,9 @@ void main() {
       theme: ThemeData(
         scaffoldBackgroundColor: ScaffoldColor,
         brightness: Brightness.dark,
+        appBarTheme: AppBarTheme(
+          backgroundColor: ScaffoldColor,
+        ),
       ),
     ),
   );

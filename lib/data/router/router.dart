@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:synopv2/data/constants.dart';
-import 'package:synopv2/presentation/screens/regular/Auth/login.dart';
-import 'package:synopv2/presentation/screens/regular/Home/add.dart';
-import 'package:synopv2/presentation/screens/regular/Home/home.dart';
-import 'package:synopv2/presentation/screens/splash_screen.dart';
+import 'package:synop/data/constants.dart';
+import 'package:synop/presentation/login.dart';
+import 'package:synop/presentation/screens/add.dart';
+import 'package:synop/presentation/screens/regular/Home/home.dart';
+import '../../presentation/screens/splash_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
