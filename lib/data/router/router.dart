@@ -41,5 +41,6 @@ class AppRouter {
           builder: (_) => const AddData(),
         );
     }
+    return null;
   }
 }

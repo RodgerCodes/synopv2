@@ -8,10 +8,19 @@ class UserCubit extends Cubit<UserState> {
   final Repository repository;
   UserCubit({required this.repository}) : super(UserInitial());
 
-  void checkStation() {
-    repository.stationNumber().then((value) {
-      if (value['available'] == false) {
-        emit(Available());
+  void signIn() {
+    emit(LogginIn());
+    repository.login().then((value) {
+      if (value['err']) {
+        emit(
+          LoginError(
+            msg: value['msg'],
+          ),
+        );
+      } else {
+        emit(
+          LoggedIn(msg: value['msg']),
+        );
       }
     });
   }
