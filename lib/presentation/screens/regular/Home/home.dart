@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:synop/data/constants.dart';
 import 'package:synop/data/cubit/codes_cubit.dart';
 import 'package:synop/presentation/widgets/add_button.dart';
 
@@ -8,6 +9,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<CodesCubit>(context).getStationData();
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -23,12 +25,40 @@ class HomeScreen extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: BlocConsumer<CodesCubit, CodesState>(
             listener: (context, state) {
-              // TODO: implement listener
+              // pray this state is not emitted
+              if (state is ForbiddenError) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      state.msg,
+                    ),
+                  ),
+                );
+
+                // navigator to login page
+                Navigator.pushReplacementNamed(context, login);
+              }
             },
             builder: (context, state) {
-              return ListView(
-                children: [],
-              );
+              if (state is FetchedCodes) {
+                if (state.data.isEmpty) {
+                  return const Center(
+                    child: Text("No data available for your station"),
+                  );
+                } else {
+                  return ListTile();
+                }
+              } else if (state is Error) {
+                return Center(
+                  child: Text(state.msg),
+                );
+              } else {
+                return Center(
+                  child: CircularProgressIndicator(
+                    color: btnColor,
+                  ),
+                );
+              }
             },
           ),
         ),

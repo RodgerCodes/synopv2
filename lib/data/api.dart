@@ -75,7 +75,20 @@ class ApiCall {
           'Authorization': 'Bearer $token',
         },
       );
-      print(request.body);
+      if (request.statusCode == 401) {
+        return {
+          'err': true,
+          'type': '403',
+          'msg': 'Forbidden',
+        };
+      } else {
+        //  decode data
+        final response = convert.jsonDecode(request.body);
+        return {
+          'err': false,
+          'msg': response,
+        };
+      }
     } on SocketException {
       return {
         'err': true,
