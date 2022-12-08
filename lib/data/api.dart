@@ -73,6 +73,7 @@ class ApiCall {
         },
       );
       if (request.statusCode == 401) {
+        prefs.setBool("isLoggedin", false);
         return {
           'err': true,
           'type': '403',

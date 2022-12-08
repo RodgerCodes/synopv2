@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:synop/data/constants.dart';
 import 'package:synop/data/cubit/codes_cubit.dart';
 import 'package:synop/presentation/widgets/add_button.dart';
@@ -19,6 +20,20 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
+        actions: [
+          GestureDetector(
+            onTap: () async {
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              prefs.setBool("isLoggedin", false);
+
+              // ignore: use_build_context_synchronously
+              Navigator.pushReplacementNamed(context, login);
+            },
+            child: const Icon(
+              Icons.logout,
+            ),
+          ),
+        ],
       ),
       body: SafeArea(
         child: Padding(
