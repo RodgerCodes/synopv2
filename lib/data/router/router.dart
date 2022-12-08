@@ -42,7 +42,10 @@ class AppRouter {
 
       case add:
         return MaterialPageRoute(
-          builder: (_) => const AddData(),
+          builder: (_) => BlocProvider(
+            create: (context) => CodesCubit(repository: repository),
+            child: const AddData(),
+          ),
         );
     }
     return null;

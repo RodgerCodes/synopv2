@@ -26,6 +26,9 @@ class _AddMobileState extends State<AddMobile> {
           padding: const EdgeInsets.all(8.0),
           child: ListView(
             children: [
+              const SizedBox(
+                height: 10,
+              ),
               Row(
                 children: [
                   GestureDetector(
@@ -41,7 +44,7 @@ class _AddMobileState extends State<AddMobile> {
                     "Add Weather Data",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                      fontSize: 24,
                     ),
                   )
                 ],
@@ -151,20 +154,21 @@ class _AddMobileState extends State<AddMobile> {
                     ),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton(
-                          value: ix,
-                          hint: const Text('Present Past weather inclusion'),
-                          items: presentWeatherInclusion
-                              .map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem(
-                              value: value,
-                              child: Text(
-                                value,
-                              ),
-                            );
-                          }).toList(),
-                          onChanged: (value) {
-                            ix = value.toString();
-                          }),
+                        value: ix,
+                        hint: const Text('Present Past weather inclusion'),
+                        items: presentWeatherInclusion
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem(
+                            value: value,
+                            child: Text(
+                              value,
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          ix = value.toString();
+                        },
+                      ),
                     ),
                   ),
                   const SizedBox(
