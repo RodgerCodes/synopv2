@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:synop/data/constants.dart';
 import 'package:synop/data/cubit/user_cubit.dart';
 import 'package:synop/presentation/widgets/loader.dart';
@@ -13,6 +14,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   // bool available = false;
+  void checkLoggedIn() async {}
 
   @override
   void initState() {

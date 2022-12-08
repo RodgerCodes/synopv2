@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: BlocConsumer<CodesCubit, CodesState>(
             listener: (context, state) {
-              // pray this state is not emitted
+              // Pray this state is not emitted
               if (state is ForbiddenError) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(

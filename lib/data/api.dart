@@ -30,7 +30,6 @@ class ApiCall {
       } else {
         final token = response['access'];
         final stationNumber = response['station_number'];
-        // print(stationNumber.runtimeType);
         prefs.setString("token", token);
         prefs.setInt("stationNumber", stationNumber);
         prefs.setBool("isLoggedin", true);
@@ -54,8 +53,6 @@ class ApiCall {
         'type': 'http',
         'msg': 'Server Error! Contact system Admin',
       };
-    } catch (e) {
-      print(e.toString());
     }
   }
 
@@ -101,6 +98,6 @@ class ApiCall {
         'type': 'http',
         'msg': 'Server Error! Contact system Admin',
       };
-    } catch (e) {}
+    }
   }
 }
