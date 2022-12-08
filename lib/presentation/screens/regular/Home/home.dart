@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:synop/data/cubit/codes_cubit.dart';
 import 'package:synop/presentation/widgets/add_button.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -19,8 +21,15 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: ListView(
-            children: [],
+          child: BlocConsumer<CodesCubit, CodesState>(
+            listener: (context, state) {
+              // TODO: implement listener
+            },
+            builder: (context, state) {
+              return ListView(
+                children: [],
+              );
+            },
           ),
         ),
       ),

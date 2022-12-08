@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:synop/data/api.dart';
 import 'package:synop/data/constants.dart';
+import 'package:synop/data/cubit/codes_cubit.dart';
 import 'package:synop/data/cubit/user_cubit.dart';
 import 'package:synop/data/repository/repo.dart';
 import 'package:synop/presentation/login.dart';
@@ -33,7 +34,10 @@ class AppRouter {
 
       case home:
         return MaterialPageRoute(
-          builder: (_) => const HomeScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => CodesCubit(repository: repository),
+            child: const HomeScreen(),
+          ),
         );
 
       case add:

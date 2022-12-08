@@ -59,19 +59,35 @@ class ApiCall {
     }
   }
 
-  // check if station number is available in local storage
-  Future stationNumber() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    var data = prefs.getInt("station");
-    if (data == null) {
+  // get station data by station number
+  Future getData() async {
+    try {
+      // local storage instance
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+
+      final token = prefs.getString("token");
+      final stationNumber = prefs.getInt("stationNumber");
+
+      // http request
+      final request = await http.get(
+        Uri.parse("$baseUrl/api/data/station/$stationNumber/"),
+        headers: {
+          'Authorization': 'Bearer $token',
+        },
+      );
+      print(request.body);
+    } on SocketException {
       return {
-        'available': false,
+        'err': true,
+        'type': 'socket',
+        'msg': 'Network Error',
       };
-    } else {
-      print(data);
+    } on HttpException {
       return {
-        'available': true,
+        'err': true,
+        'type': 'http',
+        'msg': 'Server Error! Contact system Admin',
       };
-    }
+    } catch (e) {}
   }
 }

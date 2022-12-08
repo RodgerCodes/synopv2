@@ -9,8 +9,9 @@ class Repository {
     return await api.login();
   }
 
-  Future stationNumber() async {
-    final data = api.stationNumber();
+  // station data
+  Future stationData() async {
+    final data = await api.getData();
     return data;
   }
 }

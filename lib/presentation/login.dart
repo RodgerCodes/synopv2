@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:synop/data/constants.dart';
 import 'package:synop/data/cubit/user_cubit.dart';
 import 'package:synop/presentation/widgets/loader.dart';
