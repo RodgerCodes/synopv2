@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:synop/data/constants.dart';
 import 'package:synop/data/data.dart';
+import 'package:synop/data/utils/synop_generator.dart';
 
 class AddMobile extends StatefulWidget {
   const AddMobile({Key? key}) : super(key: key);
@@ -1200,9 +1202,17 @@ class _AddMobileState extends State<AddMobile> {
                     height: 20,
                   ),
                   GestureDetector(
-                    // onTap: () {
-                    //   Navigator.pushNamed(context, home);
-                    // },
+                    onTap: () async {
+                      // data convertion
+                      // TODO Ger current date and time from device
+
+                      // Get station nummber
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                      var stationNumber = prefs.getInt("stationNumber");
+
+                      print(generateSynop(stationNumber!, iw, ir, ix));
+                    },
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       padding: const EdgeInsets.all(14.5),

@@ -28,7 +28,7 @@ final TextEditingController stationNumber = TextEditingController();
 final List<String> windSpeedIndicator = [
   'Estimated in m/s',
   'Obtained from Anemometer in m/s',
-  'Estimatedin Knots',
+  'Estimated in Knots',
   'Obtained from Anemometer in Knots'
 ];
 

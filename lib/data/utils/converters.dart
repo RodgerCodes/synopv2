@@ -1,10 +1,10 @@
 // wind speed units
 int windUnitsCode(String value) {
-  if (value == 'm/s(est)') {
+  if (value == 'Estimated in m/s') {
     return 0;
-  } else if (value == 'm/s(anemometer)') {
+  } else if (value == 'Obtained from Anemometer in m/s') {
     return 1;
-  } else if (value == 'knots(est)') {
+  } else if (value == 'Estimated in Knots') {
     return 3;
   } else {
     return 4;
@@ -37,6 +37,35 @@ int presentAndPastWeather(String value) {
     return 2;
   } else {
     return 3;
+  }
+}
+
+String cloudHeight(dynamic cloudHeight) {
+  if (int.parse(cloudHeight) >= 0 && double.parse(cloudHeight) < 50) {
+    return "0";
+  } else if (int.parse(cloudHeight) >= 50 && double.parse(cloudHeight) < 100) {
+    return "1";
+  } else if (int.parse(cloudHeight) >= 100 && int.parse(cloudHeight) < 200) {
+    return "2";
+  } else if (int.parse(cloudHeight) >= 200 && int.parse(cloudHeight) < 300) {
+    return "3";
+  } else if (int.parse(cloudHeight) >= 300 && double.parse(cloudHeight) < 600) {
+    return "4";
+  } else if (int.parse(cloudHeight) >= 600 &&
+      double.parse(cloudHeight) < 1000) {
+    return "5";
+  } else if (int.parse(cloudHeight) >= 1000 && int.parse(cloudHeight) < 1500) {
+    return "6";
+  } else if (int.parse(cloudHeight) >= 1500 &&
+      double.parse(cloudHeight) < 2000) {
+    return "7";
+  } else if (int.parse(cloudHeight) >= 2000 &&
+      double.parse(cloudHeight) < 2500) {
+    return "8";
+  } else if (int.parse(cloudHeight) >= 2500 || cloudHeight == "no clouds") {
+    return "9";
+  } else {
+    return "/";
   }
 }
 
