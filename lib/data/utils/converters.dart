@@ -40,7 +40,7 @@ int presentAndPastWeather(String value) {
   }
 }
 
-String cloudHeight(dynamic cloudHeight) {
+String cloudHeightConverter(dynamic cloudHeight) {
   if (int.parse(cloudHeight) >= 0 && double.parse(cloudHeight) < 50) {
     return "0";
   } else if (int.parse(cloudHeight) >= 50 && double.parse(cloudHeight) < 100) {
@@ -181,7 +181,7 @@ class WindData {
   }
 }
 
-class visibilityinfo {
+class Visibilityinfo {
   static String visibilityData(int value) {
     if (value < 100) {
       return '00';
@@ -452,11 +452,11 @@ class HighClouds {
 //   }
 // }
 
-String RainfallAmount(double value) {
+String rainfallAmount(double value) {
   if (value < 10 && value >= 1) {
-    return '00' + value.round().toString();
+    return '00${value.round()}';
   } else if (value < 100 && value >= 10) {
-    return '0' + value.round().toString();
+    return '0${value.round()}';
   } else if (value == 0.1) {
     return '991';
   } else if (value == 0.2) {

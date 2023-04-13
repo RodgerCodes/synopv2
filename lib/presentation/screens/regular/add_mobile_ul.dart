@@ -374,7 +374,7 @@ class _AddMobileState extends State<AddMobile> {
                     height: 10,
                   ),
                   TextFormField(
-                    controller: heightToLowestCloud,
+                    controller: windSpeed,
                     decoration: const InputDecoration(
                       hintText: "Wind Speed",
                       labelText: "Wind Speed",
@@ -425,6 +425,7 @@ class _AddMobileState extends State<AddMobile> {
                     height: 10,
                   ),
                   TextFormField(
+                    enabled: ir == 'Data included' ? true : false,
                     controller: rainfallAmount,
                     decoration: const InputDecoration(
                       hintText: "Rainfall Amount",
@@ -1211,7 +1212,18 @@ class _AddMobileState extends State<AddMobile> {
                           await SharedPreferences.getInstance();
                       var stationNumber = prefs.getInt("stationNumber");
 
-                      print(generateSynop(stationNumber!, iw, ir, ix));
+                      generateSynop(
+                        stationNumber!,
+                        iw,
+                        ir,
+                        ix,
+                        heightToLowestCloud.text,
+                        visibility.text,
+                        cloudAmount.text,
+                        windDirection.text,
+                        windSpeed.text,
+                        rainfallAmount.text,
+                      );
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width,
