@@ -67,7 +67,7 @@ class ApiCall {
 
       // http request
       final request = await http.get(
-        Uri.parse("$baseUrl/api/data/station/$stationNumber/"),
+        Uri.parse("$baseUrl/dashboard/api/data/station/$stationNumber/"),
         headers: {
           'Authorization': 'Bearer $token',
         },
