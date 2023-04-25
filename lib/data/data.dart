@@ -25,6 +25,16 @@ final TextEditingController presentweather = TextEditingController();
 final TextEditingController pastTwentyFourWeather = TextEditingController();
 final TextEditingController stationNumber = TextEditingController();
 final TextEditingController dewPoint = TextEditingController();
+final TextEditingController lowCloudAmount = TextEditingController();
+final TextEditingController lowCloudType = TextEditingController();
+final TextEditingController lowCloudHeight = TextEditingController();
+final TextEditingController middleCloudAmount = TextEditingController();
+final TextEditingController middleCloudType = TextEditingController();
+final TextEditingController middleCloudHeight = TextEditingController();
+final TextEditingController highCloudAmount = TextEditingController();
+final TextEditingController highTypeCloud = TextEditingController();
+final TextEditingController highCloudHeight = TextEditingController();
+
 
 final List<String> windSpeedIndicator = [
   'Estimated in m/s',

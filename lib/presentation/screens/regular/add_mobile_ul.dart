@@ -956,6 +956,386 @@ class _AddMobileState extends State<AddMobile> {
                     height: 20,
                   ),
                   const Text(
+                    'Low Clouds Amount',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: lowCloudAmount,
+                    decoration: const InputDecoration(
+                      hintText: "Low cloud Amount",
+                      labelText: "Low Cloud Amount",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    'Low Clouds Type (code)',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: lowCloudType,
+                    decoration: const InputDecoration(
+                      hintText: "Low cloud Type (code)",
+                      labelText: "Low Cloud Type (code)",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+
+
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    'Low Cloud Height (code)',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: lowCloudHeight,
+                    decoration: const InputDecoration(
+                      hintText: "Low cloud Height (code)",
+                      labelText: "Low Cloud Height (code)",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    'Middle Cloud Amount',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: middleCloudAmount,
+                    decoration: const InputDecoration(
+                      hintText: "Middle Cloud Amount",
+                      labelText: "Middle Cloud Amount",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    'Middle Cloud Type (code)',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: middleCloudType,
+                    decoration: const InputDecoration(
+                      hintText: "Middle Cloud Type (code)",
+                      labelText: "Middle Cloud Type (code)",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+
+                  const Text(
+                    'Middle Cloud Height (code)',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: middleCloudHeight,
+                    decoration: const InputDecoration(
+                      hintText: "Middle Cloud Height",
+                      labelText: "Middle Cloud Height",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+
+                  const Text(
+                    'High Cloud Amount',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: highCloudAmount,
+                    decoration: const InputDecoration(
+                      hintText: "Hight Cloud Amount",
+                      labelText: "High Cloud Amount",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+
+                  const Text(
+                    'High Cloud Type (code)',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: highTypeCloud,
+                    decoration: const InputDecoration(
+                      hintText: "High Cloud Type (code)",
+                      labelText: "High Cloud Type (code)",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+
+
+                  const Text(
+                    'High Cloud Height (code)',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: highCloudAmount,
+                    decoration: const InputDecoration(
+                      hintText: "High Cloud Height (code)",
+                      labelText: "High Cloud Height (code)",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+
+
+
+
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
                     "Section H: Past and Present Weather",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -1088,105 +1468,105 @@ class _AddMobileState extends State<AddMobile> {
                   const SizedBox(
                     height: 20,
                   ),
-                  // const Text(
-                  //   "Section I: Sunshine",
-                  //   style: TextStyle(
-                  //     fontWeight: FontWeight.bold,
-                  //     fontSize: 18,
-                  //   ),
-                  // ),
-                  // const SizedBox(
-                  //   height: 10,
-                  // ),
-                  // const Text(
-                  //   'Sunshine',
-                  //   style: TextStyle(color: Colors.white),
-                  // ),
-                  // const SizedBox(
-                  //   height: 10,
-                  // ),
-                  // TextFormField(
-                  //   controller: sunshine,
-                  //   decoration: const InputDecoration(
-                  //     hintText: "Sunshine",
-                  //     labelText: "Sunshine",
-                  //     enabledBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide(
-                  //         color: whiteColor,
-                  //         width: 1.0,
-                  //       ),
-                  //     ),
-                  //     focusedErrorBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide(
-                  //         color: errorColor,
-                  //         width: 2,
-                  //       ),
-                  //     ),
-                  //     focusedBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide(
-                  //         color: Colors.white,
-                  //         width: 1.0,
-                  //       ),
-                  //     ),
-                  //     errorBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide(
-                  //         color: errorColor,
-                  //         width: 2,
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
-                  // const SizedBox(
-                  //   height: 20,
-                  // ),
-                  // const Text(
-                  //   "Section J: Evaporation",
-                  //   style: TextStyle(
-                  //     fontWeight: FontWeight.bold,
-                  //     fontSize: 18,
-                  //   ),
-                  // ),
-                  // const SizedBox(
-                  //   height: 10,
-                  // ),
-                  // const Text(
-                  //   'Evaporation',
-                  //   style: TextStyle(color: Colors.white),
-                  // ),
-                  // const SizedBox(
-                  //   height: 10,
-                  // ),
-                  // TextFormField(
-                  //   controller: evaporation,
-                  //   decoration: const InputDecoration(
-                  //     hintText: "Evaporation",
-                  //     labelText: "Evaporation",
-                  //     enabledBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide(
-                  //         color: whiteColor,
-                  //         width: 1.0,
-                  //       ),
-                  //     ),
-                  //     focusedErrorBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide(
-                  //         color: errorColor,
-                  //         width: 2,
-                  //       ),
-                  //     ),
-                  //     focusedBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide(
-                  //         color: Colors.white,
-                  //         width: 1.0,
-                  //       ),
-                  //     ),
-                  //     errorBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide(
-                  //         color: errorColor,
-                  //         width: 2,
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
+                  const Text(
+                    "Section I: Sunshine",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    'Sunshine',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: sunshine,
+                    decoration: const InputDecoration(
+                      hintText: "Sunshine",
+                      labelText: "Sunshine",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    "Section J: Evaporation",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    'Evaporation',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: evaporation,
+                    decoration: const InputDecoration(
+                      hintText: "Evaporation",
+                      labelText: "Evaporation",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
                   // const SizedBox(
                   //   height: 20,
                   // ),
@@ -1227,16 +1607,25 @@ class _AddMobileState extends State<AddMobile> {
                   // ),
                   GestureDetector(
                     onTap: () async {
-                      // data convertion
-                      // TODO Ger current date and time from device
+                      // data conversion
+                      // TODO Get current date and time from device
 
-                      // Get station nummber
+                      // Get station number
                       SharedPreferences prefs =
                           await SharedPreferences.getInstance();
                       var stationNumber = prefs.getInt("stationNumber");
 
+                      var dateTime = DateTime.now();
+                      var date = dateTime.day;
+                      var time;
+                      // if(date.hour > 8 || date.hour){
+                      //   time = 06
+                      // }
+
                       generateSynop(
                         stationNumber!,
+                        date,
+
                         iw,
                         ir,
                         ix,
@@ -1256,9 +1645,26 @@ class _AddMobileState extends State<AddMobile> {
                         lowcloud,
                         middlecloud,
                         highcloud,
+                        // extra cloud groups
+                        // lower clouds
+                        lowCloudAmount.text,
+                        lowCloudType.text,
+                        lowCloudHeight.text,
+
+                        middleCloudAmount.text,
+                        middleCloudType.text,
+                        middleCloudHeight.text,
+
+                        highCloudAmount.text,
+                        highTypeCloud.text,
+                        highCloudHeight.text,
+
+
                         pastweather.text,
                         presentweather.text,
                         pastTwentyFourWeather.text,
+                        sunshine.text,
+                        evaporation.text,
                       );
                     },
                     child: Container(

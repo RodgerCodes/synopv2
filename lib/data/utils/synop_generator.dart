@@ -1,8 +1,9 @@
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:synop/data/utils/converters.dart';
 
 String generateSynop(
   int stationNumber,
+  dynamic date,
+  // dynamic time,
   String windSpeedIndicator,
   String rainfallDataInclusion,
   String pastPresentWeatherInclusion,
@@ -22,9 +23,24 @@ String generateSynop(
     String lowClouds,
     String middleClouds,
     String highClouds,
+    // extra cloud groups
+    String? lowCloudAmount,
+    String? lowerCloudType,
+    String? lowerCloudHeight,
+
+    String? middleCloudAmount,
+    String? middleCloudType,
+    String? middleCloudHeight,
+
+    String? higherCloudAmount,
+    String? higherCloudType,
+    String? higherCloudHeight,
+
     String? pastWeatherCode,
     String? presentWeatherCode,
     String? past24hourWeatherCode,
+    String? sunshine,
+    String? evaporation
 ) {
   // data inclusion
   var speedIndicator = windUnitsCode(windSpeedIndicator);
@@ -55,9 +71,9 @@ String generateSynop(
   // TODO change units value if units in knots
 
   // RAINFALL DATA CONVERTERS
-  dynamic rainfallAmount;
+  dynamic rainfallAmountInfo;
   if (rainfallAmountData != null) {
-    rainfallAmount = rainfallAmount(double.parse(rainfallAmountData));
+    rainfallAmountInfo = rainfallAmount(double.parse(rainfallAmountData));
   }
 
   // TEMPERATURE DATA CONVERTERS
@@ -67,7 +83,7 @@ String generateSynop(
 
   // dew point temperature
   var newDew = double.parse(dewPointTemperature!);
-  var dewPoint = (newDew * 10).round().toString();
+  var dewPointTemp = (newDew * 10).round().toString();
 
   // maximum temp
   var maxTemp = double.parse(maximumTemperature!);
@@ -77,12 +93,14 @@ String generateSynop(
   var minTemp = double.parse(minimumTemperature!);
   var finalMinTemp = (minTemp * 10).round().toString();
 
+  var tempSign = Tempsign(numtemp);
+
   // PRESSURE DATA CONVERTERS
 
   //get station pressure from parameter,
   var isoValue = IsobaricValue(isobaricValue!);
 
-  // get geopotential height from parameter
+  // get geoPotential height from parameter
 
 
   // CLOUDS
@@ -99,7 +117,21 @@ String generateSynop(
   // @REMINDER get past 24 hour weather code from parameter
 
 
+  // GENERATE SYNOP
+  var synop;
+  // TODO get current date and time
+
+  //This is the original synop returned when all fields are not empty
+  synop = "AAXX ${date}time${speedIndicator} 67${stationNumber} "
+      "${rainfallInclusion}${pastPresentAvailable}${cloudBaseHeight}${horizontalVisibility} "
+      "${cloudAmountData}${windDirection}${windSpeed} 10${newTemp} 20${dewPointTemp} 3${stationPressure} 4${isoValue} 6${rainfallAmountInfo}24"
+      " 7${presentWeatherCode}${pastWeatherCode}  "
+      "333 20${finalMinTemp} 50${evaporation} 5${sunshine} 8${lowCloudAmount}${lowerCloudType}${lowerCloudHeight} 8${middleCloudAmount}${middleCloudType}${middleCloudHeight}"
+      " ${higherCloudAmount}${higherCloudType}${higherCloudHeight} "
+      "555 10${finalMaxTemp} 7//${past24hourWeatherCode}=";
 
 
-  return stationNumber.toString();
+
+
+  return synop.toString();
 }
