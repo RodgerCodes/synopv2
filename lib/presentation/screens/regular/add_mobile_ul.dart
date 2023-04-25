@@ -1139,110 +1139,92 @@ class _AddMobileState extends State<AddMobile> {
                   // const SizedBox(
                   //   height: 20,
                   // ),
-                  const Text(
-                    "Section J: Evaporation",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Text(
-                    'Evaporation',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  TextFormField(
-                    controller: evaporation,
-                    decoration: const InputDecoration(
-                      hintText: "Evaporation",
-                      labelText: "Evaporation",
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: whiteColor,
-                          width: 1.0,
-                        ),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: errorColor,
-                          width: 2,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                          width: 1.0,
-                        ),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: errorColor,
-                          width: 2,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    padding: const EdgeInsets.only(left: 10, right: 10),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: whiteColor,
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(
-                        5.0,
-                      ),
-                    ),
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton(
-                          value: panoption,
-                          hint: const Text('Evaporation instrument Type'),
-                          items: evaporationpan
-                              .map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem(
-                              value: value,
-                              child: Text(
-                                value,
-                              ),
-                            );
-                          }).toList(),
-                          onChanged: (value) {
-                            setState(() {
-                              panoption = value.toString();
-                            });
-                          }),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  GestureDetector(
-                    // onTap: () {
-                    //   Navigator.pushNamed(context, home);
-                    // },
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      padding: const EdgeInsets.all(14.5),
-                      decoration: btnStyle,
-                      child: const Text(
-                        "Save Data",
-                        textAlign: TextAlign.center,
-                        style: textStyle,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  // const Text(
+                  //   "Section J: Evaporation",
+                  //   style: TextStyle(
+                  //     fontWeight: FontWeight.bold,
+                  //     fontSize: 18,
+                  //   ),
+                  // ),
+                  // const SizedBox(
+                  //   height: 10,
+                  // ),
+                  // const Text(
+                  //   'Evaporation',
+                  //   style: TextStyle(color: Colors.white),
+                  // ),
+                  // const SizedBox(
+                  //   height: 10,
+                  // ),
+                  // TextFormField(
+                  //   controller: evaporation,
+                  //   decoration: const InputDecoration(
+                  //     hintText: "Evaporation",
+                  //     labelText: "Evaporation",
+                  //     enabledBorder: OutlineInputBorder(
+                  //       borderSide: BorderSide(
+                  //         color: whiteColor,
+                  //         width: 1.0,
+                  //       ),
+                  //     ),
+                  //     focusedErrorBorder: OutlineInputBorder(
+                  //       borderSide: BorderSide(
+                  //         color: errorColor,
+                  //         width: 2,
+                  //       ),
+                  //     ),
+                  //     focusedBorder: OutlineInputBorder(
+                  //       borderSide: BorderSide(
+                  //         color: Colors.white,
+                  //         width: 1.0,
+                  //       ),
+                  //     ),
+                  //     errorBorder: OutlineInputBorder(
+                  //       borderSide: BorderSide(
+                  //         color: errorColor,
+                  //         width: 2,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                  // const SizedBox(
+                  //   height: 20,
+                  // ),
+                  // Container(
+                  //   width: MediaQuery.of(context).size.width,
+                  //   padding: const EdgeInsets.only(left: 10, right: 10),
+                  //   decoration: BoxDecoration(
+                  //     border: Border.all(
+                  //       color: whiteColor,
+                  //       width: 2.0,
+                  //     ),
+                  //     borderRadius: BorderRadius.circular(
+                  //       5.0,
+                  //     ),
+                  //   ),
+                  //   child: DropdownButtonHideUnderline(
+                  //     child: DropdownButton(
+                  //         value: panoption,
+                  //         hint: const Text('Evaporation instrument Type'),
+                  //         items: evaporationpan
+                  //             .map<DropdownMenuItem<String>>((String value) {
+                  //           return DropdownMenuItem(
+                  //             value: value,
+                  //             child: Text(
+                  //               value,
+                  //             ),
+                  //           );
+                  //         }).toList(),
+                  //         onChanged: (value) {
+                  //           setState(() {
+                  //             panoption = value.toString();
+                  //           });
+                  //         }),
+                  //   ),
+                  // ),
+                  // const SizedBox(
+                  //   height: 20,
+                  // ),
                   GestureDetector(
                     onTap: () async {
                       // data convertion
