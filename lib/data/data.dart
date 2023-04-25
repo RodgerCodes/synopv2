@@ -24,6 +24,7 @@ final TextEditingController pastweather = TextEditingController();
 final TextEditingController presentweather = TextEditingController();
 final TextEditingController pastTwentyFourWeather = TextEditingController();
 final TextEditingController stationNumber = TextEditingController();
+final TextEditingController dewPoint = TextEditingController();
 
 final List<String> windSpeedIndicator = [
   'Estimated in m/s',

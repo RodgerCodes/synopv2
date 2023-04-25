@@ -487,3 +487,21 @@ int Tempsign(double temp) {
     return 1;
   }
 }
+
+String IsobaricValue(String value){
+  if (value == "1000") {
+     return "1";
+  } else if (value == "925") {
+    return "2";
+  } else if (value == "500") {
+    return "5";
+  } else if (value == "700") {
+    return "7";
+  } else if (value == "850") {
+    return "8";
+  } else {
+    return "/";
+  }
+}
+
+

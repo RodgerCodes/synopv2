@@ -552,6 +552,47 @@ class _AddMobileState extends State<AddMobile> {
                     height: 20,
                   ),
                   const Text(
+                    'Dew Point Temperature',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: dewPoint,
+                    decoration: const InputDecoration(
+                      hintText: "Dew Point",
+                      labelText: "Dew Point",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
                     'Maximum Temperature',
                     style: TextStyle(color: Colors.white),
                   ),
@@ -694,8 +735,8 @@ class _AddMobileState extends State<AddMobile> {
                   TextFormField(
                     controller: stationPressure,
                     decoration: const InputDecoration(
-                      hintText: "Ground Maximum Temp",
-                      labelText: "Ground Maximum Temp",
+                      hintText: "Station Pressure",
+                      labelText: "Station Pressure",
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: whiteColor,
@@ -1223,6 +1264,16 @@ class _AddMobileState extends State<AddMobile> {
                         windDirection.text,
                         windSpeed.text,
                         rainfallAmount.text,
+                        drybulbTemp.text,
+                        dewPoint.text,
+                        maxTemp.text,
+                        minTemp.text,
+                        stationPressure.text,
+                          isobaricValue,
+                        geoPotentialHeight.text,
+                        lowcloud,
+                        middlecloud,
+                        highcloud
                       );
                     },
                     child: Container(
