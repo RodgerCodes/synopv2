@@ -1088,57 +1088,57 @@ class _AddMobileState extends State<AddMobile> {
                   const SizedBox(
                     height: 20,
                   ),
-                  const Text(
-                    "Section I: Sunshine",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Text(
-                    'Sunshine',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  TextFormField(
-                    controller: sunshine,
-                    decoration: const InputDecoration(
-                      hintText: "Sunshine",
-                      labelText: "Sunshine",
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: whiteColor,
-                          width: 1.0,
-                        ),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: errorColor,
-                          width: 2,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                          width: 1.0,
-                        ),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: errorColor,
-                          width: 2,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  // const Text(
+                  //   "Section I: Sunshine",
+                  //   style: TextStyle(
+                  //     fontWeight: FontWeight.bold,
+                  //     fontSize: 18,
+                  //   ),
+                  // ),
+                  // const SizedBox(
+                  //   height: 10,
+                  // ),
+                  // const Text(
+                  //   'Sunshine',
+                  //   style: TextStyle(color: Colors.white),
+                  // ),
+                  // const SizedBox(
+                  //   height: 10,
+                  // ),
+                  // TextFormField(
+                  //   controller: sunshine,
+                  //   decoration: const InputDecoration(
+                  //     hintText: "Sunshine",
+                  //     labelText: "Sunshine",
+                  //     enabledBorder: OutlineInputBorder(
+                  //       borderSide: BorderSide(
+                  //         color: whiteColor,
+                  //         width: 1.0,
+                  //       ),
+                  //     ),
+                  //     focusedErrorBorder: OutlineInputBorder(
+                  //       borderSide: BorderSide(
+                  //         color: errorColor,
+                  //         width: 2,
+                  //       ),
+                  //     ),
+                  //     focusedBorder: OutlineInputBorder(
+                  //       borderSide: BorderSide(
+                  //         color: Colors.white,
+                  //         width: 1.0,
+                  //       ),
+                  //     ),
+                  //     errorBorder: OutlineInputBorder(
+                  //       borderSide: BorderSide(
+                  //         color: errorColor,
+                  //         width: 2,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                  // const SizedBox(
+                  //   height: 20,
+                  // ),
                   const Text(
                     "Section J: Evaporation",
                     style: TextStyle(
@@ -1273,7 +1273,10 @@ class _AddMobileState extends State<AddMobile> {
                         geoPotentialHeight.text,
                         lowcloud,
                         middlecloud,
-                        highcloud
+                        highcloud,
+                        pastweather.text,
+                        presentweather.text,
+                        pastTwentyFourWeather.text,
                       );
                     },
                     child: Container(
