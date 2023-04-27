@@ -420,9 +420,9 @@ class MiddleClouds {
       return "6";
     } else if (option == 'Ac with altostratus and nimbostratus') {
       return "7";
-    } else if (option == 'Altocumulus floccus') {
+    } else if (option == 'Ac castellanus') {
       return "8";
-    } else if (option == 'Altocumulus of chaotic sky') {
+    } else if (option == 'Ac of chaotic sky') {
       return "9";
     } else {
       return "/";
@@ -432,25 +432,25 @@ class MiddleClouds {
 
 class HighClouds {
   static String High(String option) {
-    if (option == 'No clouds') {
+    if (option == 'No high Clouds') {
       return "0";
     } else if (option == 'Cirrus fibratus') {
       return "1";
-    } else if (option == 'Cirrus spissatus in patches') {
+    } else if (option == 'Cirrus Spissatis in patches') {
       return "2";
-    } else if (option == 'Cirrus spissatus cululonimbogenitus') {
+    } else if (option == 'Cirrus Spissatus cululonimbogenitus') {
       return "3";
-    } else if (option == 'Cirrus uncinus/fibratus or both') {
+    } else if (option == 'Cirrus uncinus') {
       return "4";
-    } else if (option == 'Cirrus & Cirrostratus veil < 45') {
+    } else if (option == 'Cirrus and Cirrostratus below 45 degrees') {
       return "5";
-    } else if (option == 'Cirrus & Cirrostratus veil > 45') {
+    } else if (option == 'Cirrus and Cirrostatus  above 45 degrees') {
       return "6";
-    } else if (option == 'Cirrostratus covering sky') {
+    } else if (option == 'Cirrostratus Covering the sky') {
       return "7";
-    } else if (option == 'Cirrostratus not invading sky') {
+    } else if (option == 'Cirrostratus not progressively invading sky') {
       return "8";
-    } else if (option == 'Cirrocumulus alone/ dominant') {
+    } else if (option == 'CirroCumulus alone') {
       return "9";
     } else {
       return "/";

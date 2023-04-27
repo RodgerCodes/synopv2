@@ -43,6 +43,8 @@ String generateSynop(
     String? evaporation,
     String? maxGroundTemp,
 ) {
+  String synop;
+
   // data inclusion
   var speedIndicator = windUnitsCode(windSpeedIndicator);
   var rainfallInclusion = rainfallDataAvailability(rainfallDataInclusion);
@@ -73,7 +75,7 @@ String generateSynop(
 
   // RAINFALL DATA CONVERTERS
   dynamic rainfallAmountInfo, rainPeriod;
-  print(rainfallAmountData);
+  // print(rainfallAmountData);
   rainfallAmountInfo = CheckDataAvailability(rainfallAmountData);
   rainPeriod ='/';
 
@@ -164,17 +166,16 @@ String generateSynop(
   var evaporationChecker = CheckDataAvailability(evaporation);
 
   // GENERATE SYNOP
-  var synop;
   // TODO get current date and time
 
   //This is the original synop returned when all fields are not empty
-  synop = "AAXX ${date}time${speedIndicator} 67${stationNumber} "
-          "${rainfallInclusion}${pastPresentAvailable}${cloudBaseHeight}${horizontalVisibility} "
-          "${cloudAmountData}${windDirection}${windSpeed} 10${newTemp} 20${dewPointTemp} 3${stPressure} 4${isoValue}${geoPHeight} 6${rainfallAmountInfo}24"
-          " 7${presentWeatherCode}${pastWeatherCode} 8amount${lowCloud}${middleCloud}${highCloud} "
-          "333 20${finalMinTemp} 50${evaporationChecker} 5${sunshineChecker} 8${lowCloudAmount}${lowerCloudType}${lowerCloudHeight} 8${middleCloudAmount}${middleCloudType}${middleCloudHeight}"
-          " ${higherCloudAmount}${higherCloudType}${higherCloudHeight} "
-          "555 10${finalMaxTemp} 7//${past24hourWeatherCode}=";
+  // synop = "AAXX ${date}time${speedIndicator} 67${stationNumber} "
+  //         "${rainfallInclusion}${pastPresentAvailable}${cloudBaseHeight}${horizontalVisibility} "
+  //         "${cloudAmountData}${windDirection}${windSpeed} 10${newTemp} 20${dewPointTemp} 3${stPressure} 4${isoValue}${geoPHeight} 6${rainfallAmountInfo}${rainPeriod}"
+  //         " 7${presentWeatherCode}${pastWeatherCode} 8amount${lowCloud}${middleCloud}${highCloud} "
+  //         "333 0${finalMaxGround} 20${finalMinTemp} 50${evaporationChecker} 5${sunshineChecker} 8${lowCloudAmount}${lowerCloudType}${lowerCloudHeight} 8${middleCloudAmount}${middleCloudType}${middleCloudHeight}"
+  //         " 8${higherCloudAmount}${higherCloudType}${higherCloudHeight} "
+  //         "555 10${finalMaxTemp} 7//${past24hourWeatherCode}=";
 
   if(pastPresentAvailable == 1){
   //   check rain data available
@@ -211,6 +212,14 @@ String generateSynop(
             "333 0${finalMaxGround} 20${finalMinTemp} 5${evaporationChecker} 55${sunshineChecker} 8${lowCloudAmount}${lowerCloudType}${lowerCloudHeight} "
             " ${higherCloudAmount}${higherCloudType}${higherCloudHeight} "
             "555 10${finalMaxTemp} 7//${past24hourWeatherCode}=";
+      } else {
+        synop = "AAXX ${date}time${speedIndicator} 67${stationNumber} "
+            "${rainfallInclusion}${pastPresentAvailable}${cloudBaseHeight}${horizontalVisibility} "
+            "${cloudAmountData}${windDirection}${windSpeed} 10${newTemp} 20${dewPointTemp} 3${stPressure} 4${isoValue}${geoPHeight} "
+            " 7${presentWeatherCode}${pastWeatherCode} 8amount${lowCloud}${middleCloud}${highCloud}  "
+            "333 0${finalMaxGround} 20${finalMinTemp} 5${evaporationChecker} 55${sunshineChecker} 8${lowCloudAmount}${lowerCloudType}${lowerCloudHeight} "
+            " ${higherCloudAmount}${higherCloudType}${higherCloudHeight} "
+            "555 10${finalMaxTemp} 7//${past24hourWeatherCode}=";
       }
 
     } else {
@@ -240,6 +249,14 @@ String generateSynop(
             " ${higherCloudAmount}${higherCloudType}${higherCloudHeight} "
             "555 10${finalMaxTemp} 7//${past24hourWeatherCode}=";
       } else if(middleCloudAmount == null){
+        synop = "AAXX ${date}time${speedIndicator} 67${stationNumber} "
+            "${rainfallInclusion}${pastPresentAvailable}${cloudBaseHeight}${horizontalVisibility} "
+            "${cloudAmountData}${windDirection}${windSpeed} 10${newTemp} 20${dewPointTemp} 3${stPressure} 4${isoValue}${geoPHeight} 6${rainfallAmountInfo}4"
+            " 7${presentWeatherCode}${pastWeatherCode} 8amount${lowCloud}${middleCloud}${highCloud}  "
+            "333 0${finalMaxGround} 20${finalMinTemp} 5${evaporationChecker} 55${sunshineChecker} ${lowCloudAmount}${lowerCloudType}${lowerCloudHeight} "
+            " ${higherCloudAmount}${higherCloudType}${higherCloudHeight} "
+            "555 10${finalMaxTemp} 7//${past24hourWeatherCode}=";
+      } else {
         synop = "AAXX ${date}time${speedIndicator} 67${stationNumber} "
             "${rainfallInclusion}${pastPresentAvailable}${cloudBaseHeight}${horizontalVisibility} "
             "${cloudAmountData}${windDirection}${windSpeed} 10${newTemp} 20${dewPointTemp} 3${stPressure} 4${isoValue}${geoPHeight} 6${rainfallAmountInfo}4"
@@ -291,6 +308,14 @@ String generateSynop(
             "333 0${finalMaxGround} 20${finalMinTemp} 5${evaporationChecker} 55${sunshineChecker} ${lowCloudAmount}${lowerCloudType}${lowerCloudHeight} "
             " ${higherCloudAmount}${higherCloudType}${higherCloudHeight} "
             "555 10${finalMaxTemp} 7//${past24hourWeatherCode}=";
+      } else {
+        synop = "AAXX ${date}time${speedIndicator} 67${stationNumber} "
+            "${rainfallInclusion}${pastPresentAvailable}${cloudBaseHeight}${horizontalVisibility} "
+            "${cloudAmountData}${windDirection}${windSpeed} 10${newTemp} 20${dewPointTemp} 3${stPressure} 4${isoValue}${geoPHeight} "
+            " 8amount${lowCloud}${middleCloud}${highCloud}  "
+            "333 0${finalMaxGround} 20${finalMinTemp} 5${evaporationChecker} 55${sunshineChecker} ${lowCloudAmount}${lowerCloudType}${lowerCloudHeight} "
+            " ${higherCloudAmount}${higherCloudType}${higherCloudHeight} "
+            "555 10${finalMaxTemp} 7//${past24hourWeatherCode}=";
       }
 
     } else {
@@ -327,17 +352,20 @@ String generateSynop(
             "333 0${finalMaxGround} 20${finalMinTemp} 5${evaporationChecker} 55${sunshineChecker} ${lowCloudAmount}${lowerCloudType}${lowerCloudHeight} "
             " 8${higherCloudAmount}${higherCloudType}${higherCloudHeight} "
             "555 10${finalMaxTemp} 7//${past24hourWeatherCode}=";
+      } else {
+        synop = "AAXX ${date}time${speedIndicator} 67${stationNumber} "
+            "${rainfallInclusion}${pastPresentAvailable}${cloudBaseHeight}${horizontalVisibility} "
+            "${cloudAmountData}${windDirection}${windSpeed} 10${newTemp} 20${dewPointTemp} 3${stPressure} 4${isoValue}${geoPHeight} 6${rainfallAmountInfo}4"
+            " 8amount${lowCloud}${middleCloud}${highCloud}  "
+            "333 0${finalMaxGround} 20${finalMinTemp} 5${evaporationChecker} 55${sunshineChecker} ${lowCloudAmount}${lowerCloudType}${lowerCloudHeight} "
+            " 8${higherCloudAmount}${higherCloudType}${higherCloudHeight} "
+            "555 10${finalMaxTemp} 7//${past24hourWeatherCode}=";
+
       }
 
     }
 
 
   }
-
-
-
-
-
-
-  return synop.toString();
+  return synop;
 }
