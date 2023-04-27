@@ -1621,8 +1621,9 @@ class _AddMobileState extends State<AddMobile> {
                       // if(date.hour > 8 || date.hour){
                       //   time = 06
                       // }
-
-                      generateSynop(
+                      print(groundMax.text.runtimeType);
+                      //
+                      var synopCode = generateSynop(
                         stationNumber!,
                         date,
 
@@ -1665,7 +1666,10 @@ class _AddMobileState extends State<AddMobile> {
                         pastTwentyFourWeather.text,
                         sunshine.text,
                         evaporation.text,
+                        groundMax.text,
                       );
+
+                      print(synopCode);
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width,

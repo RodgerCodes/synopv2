@@ -11,6 +11,14 @@ int windUnitsCode(String value) {
   }
 }
 
+String dataAvailabilityChecker(dynamic value){
+  if(value == null || value == ''){
+    return '/';
+  }
+
+  return value;
+}
+
 String? knotsData(int value, int windInfo) {
   if (value == 3 || value == 44 && windInfo > 99) {
     return "99";
@@ -27,6 +35,13 @@ String rainfallDataAvailability(String value) {
   } else {
     return '4';
   }
+}
+
+dynamic CheckDataAvailability(dynamic value){
+  if(value == null || value == ''){
+    return '///';
+  }
+  return value;
 }
 
 // past and present weather
@@ -71,27 +86,27 @@ String cloudHeightConverter(dynamic cloudHeight) {
 
 class PastweatherData {
   // ignore: non_constant_identifier_names
-  static int? PastWeatherChecker(String value) {
+  static String? PastWeatherChecker(String value) {
     if (value == 'Cloud cover 4 oktas or less') {
-      return 0;
+      return "0";
     } else if (value == 'Cloud cover more than 4 oktas (part of period)') {
-      return 1;
+      return "1";
     } else if (value == 'Cloud cover more than 4 oktas (whole period)') {
-      return 2;
+      return "2";
     } else if (value == 'Sandstorm, duststorm or blowing snow') {
-      return 3;
+      return "3";
     } else if (value == 'Fog or thick haze, visibility below 1000m') {
-      return 4;
+      return "4";
     } else if (value == 'Drizzle') {
-      return 5;
+      return "5";
     } else if (value == 'Rain') {
-      return 6;
+      return "6";
     } else if (value == 'Snow/rain and snow mixed') {
-      return 7;
+      return "7";
     } else if (value == 'Shower(s)') {
-      return 8;
+      return "8";
     } else if (value == 'Thunderstorm(s) with/without precipitation') {
-      return 9;
+      return "9";
     }
     return null;
   }
@@ -361,25 +376,25 @@ class Visibilityinfo {
 
 class LowClouds {
   static String Low(String option) {
-    if (option == 'No clouds') {
+    if (option == 'No low Clouds') {
       return "0";
-    } else if (option == 'Cu with little vertical extent/ ragged Cu') {
+    } else if (option == 'Cumulus with little extent') {
       return "1";
-    } else if (option == 'Moderate/large Cu with/without Sc') {
+    } else if (option == 'Towering Cumulus') {
       return "2";
-    } else if (option == 'Cb without anvil shaped') {
+    } else if (option == 'Cb without Anvil') {
       return "3";
-    } else if (option == 'SC formed by Spreading of Cu') {
+    } else if (option == 'Sc by cumulus Spreading') {
       return "4";
-    } else if (option == 'Sc not formed by spreading') {
+    } else if (option == 'Sc without Cu spreading') {
       return "5";
-    } else if (option == 'St more/less Continuous layer') {
+    } else if (option == 'Stratus of continous layer') {
       return "6";
-    } else if (option == 'Ragged shreds of Cu/St of bad weather') {
+    } else if (option == 'Cu or Sc of bad weather') {
       return "7";
-    } else if (option == 'Cu & Sc;bases at different levels') {
+    } else if (option == 'Cu & Sc at different height') {
       return "8";
-    } else if (option == 'Cb;top culiform and anvil shaped') {
+    } else if (option == 'Cb with Anvil top') {
       return "9";
     } else {
       return "/";
@@ -389,21 +404,21 @@ class LowClouds {
 
 class MiddleClouds {
   static String Middle(String option) {
-    if (option == 'No clouds') {
+    if (option == 'No Medium Clouds') {
       return '0';
     } else if (option == 'Altostratus translucidus') {
       return "1";
-    } else if (option == 'Altostratus opacus/nimbostratus') {
+    } else if (option == 'Altostratus opacus / nimbostratus') {
       return "2";
-    } else if (option == 'translucidus single level') {
+    } else if (option == 'Altocumulus as single level') {
       return "3";
-    } else if (option == 'patches of altocumulus') {
+    } else if (option == 'Patches of Ac') {
       return "4";
-    } else if (option == 'Altocumulus translucidus bands') {
+    } else if (option == 'AC in bands') {
       return "5";
-    } else if (option == 'Altocumulus from spreadind cumulus') {
+    } else if (option == 'Ac from spreading of Cu') {
       return "6";
-    } else if (option == 'Altocumulus with altostratus & ns') {
+    } else if (option == 'Ac with altostratus and nimbostratus') {
       return "7";
     } else if (option == 'Altocumulus floccus') {
       return "8";
