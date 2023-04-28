@@ -22,6 +22,7 @@ class _AddMobileState extends State<AddMobile> {
   String middlecloud = "No Medium Clouds";
   String highcloud = "No high Clouds";
   String panoption = "USA opena pan mesh Cover";
+  dynamic time = "06";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,6 +61,49 @@ class _AddMobileState extends State<AddMobile> {
                   child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  GestureDetector(
+                      onTap: () {
+                        showTimePicker(
+                                context: context,
+                                builder: (context, Widget? child) {
+                                  return MediaQuery(
+                                    data: MediaQuery.of(context)
+                                        .copyWith(alwaysUse24HourFormat: true),
+                                    child: child!,
+                                  );
+                                },
+                                initialTime:
+                                    const TimeOfDay(hour: 06, minute: 00))
+                            .then((value) {
+                          setState(() {
+                            time = value?.hour;
+                          });
+                        });
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8.0,
+                          vertical: 12,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.blueGrey[800],
+                          borderRadius: BorderRadius.circular(
+                            10.0,
+                          ),
+                        ),
+                        width: MediaQuery.of(context).size.width,
+                        child: const Text(
+                          "Select Time",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      )),
                   const SizedBox(
                     height: 20,
                   ),
@@ -170,7 +214,9 @@ class _AddMobileState extends State<AddMobile> {
                           );
                         }).toList(),
                         onChanged: (value) {
-                          ix = value.toString();
+                          setState(() {
+                            ix = value.toString();
+                          });
                         },
                       ),
                     ),
@@ -1008,13 +1054,6 @@ class _AddMobileState extends State<AddMobile> {
                   const SizedBox(
                     height: 10,
                   ),
-
-
-
-
-
-
-
                   const Text(
                     'Low Clouds Amount',
                     style: TextStyle(color: Colors.white),
@@ -1094,8 +1133,6 @@ class _AddMobileState extends State<AddMobile> {
                       ),
                     ),
                   ),
-
-
                   const SizedBox(
                     height: 20,
                   ),
@@ -1222,7 +1259,6 @@ class _AddMobileState extends State<AddMobile> {
                   const SizedBox(
                     height: 20,
                   ),
-
                   const Text(
                     'Middle Cloud Height (code)',
                     style: TextStyle(color: Colors.white),
@@ -1264,7 +1300,6 @@ class _AddMobileState extends State<AddMobile> {
                   const SizedBox(
                     height: 20,
                   ),
-
                   const Text(
                     'High Cloud Amount',
                     style: TextStyle(color: Colors.white),
@@ -1306,7 +1341,6 @@ class _AddMobileState extends State<AddMobile> {
                   const SizedBox(
                     height: 20,
                   ),
-
                   const Text(
                     'High Cloud Type (code)',
                     style: TextStyle(color: Colors.white),
@@ -1348,8 +1382,6 @@ class _AddMobileState extends State<AddMobile> {
                   const SizedBox(
                     height: 20,
                   ),
-
-
                   const Text(
                     'High Cloud Height (code)',
                     style: TextStyle(color: Colors.white),
@@ -1388,10 +1420,6 @@ class _AddMobileState extends State<AddMobile> {
                       ),
                     ),
                   ),
-
-
-
-
                   const SizedBox(
                     height: 20,
                   ),
@@ -1627,44 +1655,9 @@ class _AddMobileState extends State<AddMobile> {
                       ),
                     ),
                   ),
-                  // const SizedBox(
-                  //   height: 20,
-                  // ),
-                  // Container(
-                  //   width: MediaQuery.of(context).size.width,
-                  //   padding: const EdgeInsets.only(left: 10, right: 10),
-                  //   decoration: BoxDecoration(
-                  //     border: Border.all(
-                  //       color: whiteColor,
-                  //       width: 2.0,
-                  //     ),
-                  //     borderRadius: BorderRadius.circular(
-                  //       5.0,
-                  //     ),
-                  //   ),
-                  //   child: DropdownButtonHideUnderline(
-                  //     child: DropdownButton(
-                  //         value: panoption,
-                  //         hint: const Text('Evaporation instrument Type'),
-                  //         items: evaporationpan
-                  //             .map<DropdownMenuItem<String>>((String value) {
-                  //           return DropdownMenuItem(
-                  //             value: value,
-                  //             child: Text(
-                  //               value,
-                  //             ),
-                  //           );
-                  //         }).toList(),
-                  //         onChanged: (value) {
-                  //           setState(() {
-                  //             panoption = value.toString();
-                  //           });
-                  //         }),
-                  //   ),
-                  // ),
-                  // const SizedBox(
-                  //   height: 20,
-                  // ),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   GestureDetector(
                     onTap: () async {
                       // data conversion
@@ -1677,15 +1670,10 @@ class _AddMobileState extends State<AddMobile> {
 
                       var dateTime = DateTime.now();
                       var date = dateTime.day;
-                      var time;
-                      // if(date.hour > 8 || date.hour){
-                      //   time = 06
-                      // }
-                      //
                       var synopCode = generateSynop(
                         stationNumber!,
                         date,
-
+                        time,
                         iw,
                         ir,
                         ix,
@@ -1700,7 +1688,7 @@ class _AddMobileState extends State<AddMobile> {
                         maxTemp.text,
                         minTemp.text,
                         stationPressure.text,
-                          isobaricValue,
+                        isobaricValue,
                         geoPotentialHeight.text,
                         lowcloud,
                         middlecloud,
@@ -1719,27 +1707,67 @@ class _AddMobileState extends State<AddMobile> {
                         highTypeCloud.text,
                         highCloudHeight.text,
 
-
                         pastweather.text,
                         presentweather.text,
                         pastTwentyFourWeather.text,
                         sunshine.text,
                         evaporation.text,
                         groundMax.text,
+                        lowestCloudAmount.text,
                       );
 
-                      BlocProvider.of<CodesCubit>(context).submitData(isobaricValue, lowcloud, middlecloud, highcloud, synopCode);
-
-                      print(synopCode);
+                      // ignore: use_build_context_synchronously
+                      BlocProvider.of<CodesCubit>(context).submitData(
+                        isobaricValue,
+                        lowcloud,
+                        middlecloud,
+                        highcloud,
+                        synopCode,
+                      );
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       padding: const EdgeInsets.all(14.5),
                       decoration: secBtnStyle,
-                      child: const Text(
-                        "Save and Generate Synop",
-                        textAlign: TextAlign.center,
-                        style: textStyle,
+                      child: BlocConsumer<CodesCubit, CodesState>(
+                        listener: (context, state) {
+                          if (state is DataSubmitted) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(state.msg),
+                              ),
+                            );
+                            Navigator.pushReplacementNamed(context, home);
+                          }
+                        },
+                        builder: (context, state) {
+                          if (state is SubmittingData) {
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const [
+                                Text(
+                                  "Save and Generate Synop",
+                                  textAlign: TextAlign.center,
+                                  style: textStyle,
+                                ),
+                                SizedBox(
+                                  width: 6,
+                                ),
+                                Center(
+                                  child: CircularProgressIndicator(
+                                    color: Colors.blue,
+                                  ),
+                                ),
+                              ],
+                            );
+                          } else {
+                            return const Text(
+                              "Save and Generate Synop",
+                              textAlign: TextAlign.center,
+                              style: textStyle,
+                            );
+                          }
+                        },
                       ),
                     ),
                   ),
