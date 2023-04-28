@@ -61,7 +61,42 @@ class HomeScreen extends StatelessWidget {
                     child: Text("No data available for your station"),
                   );
                 } else {
-                  return ListTile();
+                  return ListView(
+                    children: [
+                      const Padding(
+                        padding: const EdgeInsets.all(6.0),
+                        child: Text("Data", style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize:25,
+                        ),),
+                      ),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        physics: const ScrollPhysics(),
+                        itemBuilder: (context, index){
+                          return Container(
+                            margin: const EdgeInsets.symmetric(vertical: 10,),
+                            child: Card(
+                              color: Colors.blueGrey[800],
+                              child: ListTile(
+                                title:Text(state.data[index]['station']['station_name'], style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),) ,
+                                subtitle: Container(
+                                  margin: const EdgeInsets.symmetric(vertical: 9,),
+                                  child: Text(state.data[index]['code'], style: const TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                  ),),
+                                ),
+                                trailing: const Icon(Icons.delete,),
+                              ),
+                            ),
+                          );
+                      }, itemCount: state.data.length,),
+                    ],
+                  );
                 }
               } else if (state is Error) {
                 return Center(

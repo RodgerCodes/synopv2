@@ -107,10 +107,12 @@ class ApiCall {
     try{
      SharedPreferences prefs = await SharedPreferences.getInstance();
      final token = prefs.getString("token");
+     final stationnumber = prefs.getInt("stationNumber").toString();
 
     //  http request
-      final request = await http.post(Uri.parse("$baseUrl/dashboard/api/data/submit-data"),
+      final request = await http.post(Uri.parse("$baseUrl/dashboard/api/data/submit-data/"),
           body: {
+        'station_number':stationnumber,
          'wind_speed':windSpeed.text,
          'wind_direction':windDirection.text,
             'max_temperature':maxTemp.text,
@@ -135,6 +137,8 @@ class ApiCall {
       }, headers: {
         'Authorization' :'Bearer $token'
       });
+
+      print(request.body);
 
       if(request.statusCode != 201){
 
