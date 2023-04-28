@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:synop/data/constants.dart';
+import 'package:synop/data/data.dart';
 
 class ApiCall {
   var baseUrl = 'http://10.0.2.2:8000';
@@ -100,5 +101,62 @@ class ApiCall {
         'msg': 'Server Error! Contact system Admin',
       };
     }
+  }
+
+  Future submitData(String? isoValue, String lowCloud, String middleCloud, String highCloud, String synop ) async {
+    try{
+     SharedPreferences prefs = await SharedPreferences.getInstance();
+     final token = prefs.getString("token");
+
+    //  http request
+      final request = await http.post(Uri.parse("$baseUrl/dashboard/api/data/submit-data"),
+          body: {
+         'wind_speed':windSpeed.text,
+         'wind_direction':windDirection.text,
+            'max_temperature':maxTemp.text,
+            'min_temperature':minTemp.text,
+            'dry_bulb':drybulbTemp.text,
+            'wet_bulb':wetbulbTemp.text,
+            'dew_point':dewPoint.text,
+            'pressure_value':stationPressure.text,
+            'isobaric_value':isoValue,
+            'ground_max_temp':groundMax.text,
+            'low_clouds':lowCloud,
+            'middle_clouds':middleCloud,
+            'high_clouds':highCloud,
+            'sunshine':sunshine.text,
+            'evaporation':evaporation.text,
+            'rainfall_amount':rainfallAmount.text,
+            'total_Cloud_amount':cloudAmount.text,
+            'lowcloud_amount':lowCloudAmount.text,
+            'middlecloud_amount':middleCloudAmount.text,
+            'highcloud_amount':highCloudAmount.text,
+            'synop':synop,
+      }, headers: {
+        'Authorization' :'Bearer $token'
+      });
+
+      if(request.statusCode != 201){
+
+      } else {
+        return {
+          'err':false,
+          'msg':'Data submitted successfully',
+        };
+      }
+    }on SocketException {
+       return  {
+         'err':true,
+         'type':'net',
+         'msg':'Oops! Network Error, check your connection',
+       };
+    } on HttpException{
+      return {
+        'err' :true,
+        'type':'http',
+        'msg':'Server Error! contact system Admin',
+      };
+    }
+
   }
 }

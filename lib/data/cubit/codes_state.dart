@@ -13,6 +13,14 @@ class FetchedCodes extends CodesState {
   FetchedCodes({required this.data});
 }
 
+class SubmittingData extends CodesState{}
+
+class DataSubmitted extends CodesState{
+  final String msg;
+
+  DataSubmitted({required this.msg});
+}
+
 class Error extends CodesState {
   final String msg;
 

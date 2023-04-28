@@ -31,4 +31,17 @@ class CodesCubit extends Cubit<CodesState> {
       }
     });
   }
+
+
+  void submitData(String? isoValue, String lowCloud, String middleCloud, String highCloud, String synop){
+    emit(SubmittingData());
+    repository.sendData(isoValue, lowCloud, middleCloud, highCloud, synop).then((value){
+      if(value['err']){
+        //TODO emit error
+        emit(Error(msg: value['msg']));
+      } else {
+        emit(DataSubmitted(msg: value['msg']));
+      }
+    });
+  }
 }
