@@ -958,6 +958,64 @@ class _AddMobileState extends State<AddMobile> {
                     height: 20,
                   ),
                   const Text(
+                    'Lowest /Middle Cloud Amount',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    controller: lowestCloudAmount,
+                    decoration: const InputDecoration(
+                      hintText: "Low/Middle Clouds Amount",
+                      labelText: "Low/Middle Clouds Amount",
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: whiteColor,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 1.0,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: errorColor,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    "Section G1:Extra Cloud Group",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+
+
+
+
+
+
+
+                  const Text(
                     'Low Clouds Amount',
                     style: TextStyle(color: Colors.white),
                   ),

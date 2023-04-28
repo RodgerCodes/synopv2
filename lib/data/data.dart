@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 final TextEditingController heightToLowestCloud = TextEditingController();
 final TextEditingController visibility = TextEditingController();
 final TextEditingController cloudAmount = TextEditingController();
+// final TextEditingController lowestCloudAmount = TextEditingController()
 final TextEditingController windDirection = TextEditingController();
 final TextEditingController windSpeed = TextEditingController();
 final TextEditingController drybulbTemp = TextEditingController();
